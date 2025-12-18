@@ -9,18 +9,29 @@
 <body>
   <!-- ШАПКА -->
   <header class="header">
-  <div class="container header__inner">
+<div class="container">
+  <div class="header__inner">
     <a href="#" class="logo">
       <img src="img/Cakkes.png" alt="Cakkes">
     </a>
+    
     <nav class="nav">
       <a href="#catalog" class="nav__link">Каталог</a>
       <a href="#about" class="nav__link">О нас</a>
       <a href="#order" class="nav__link">Как заказать?</a>
       <a href="#contacts" class="nav__link">Контакты</a>
     </nav>
-    <a href="#" class="btn btn--black">Войти</a>
+    
+    <div class="btn btn--black">Войти</div>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
+</div>
+
 </header>
 <section class="hero">
   <div class="hero__bg"></div>
@@ -256,5 +267,33 @@
       e.stopPropagation();
     });
   });
+</script>
+<script>
+  function toggleMenu() {
+  const nav = document.querySelector('.nav');
+  const hamburger = document.querySelector('.hamburger');
+  
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('active');
+  
+  const navLinks = document.querySelectorAll('.nav__link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
+  });
+}
+
+document.addEventListener('click', (e) => {
+  const nav = document.querySelector('.nav');
+  const hamburger = document.querySelector('.hamburger');
+  const header = document.querySelector('.header__inner');
+  
+  if (!header.contains(e.target)) {
+    nav.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
 </script>
 </html>
