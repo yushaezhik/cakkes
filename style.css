@@ -755,7 +755,7 @@ body {
   
   .order__image {
     height: 500px;
-    right: -100px;
+    right: -120px;
     margin-top: 0;
   }
   
@@ -891,3 +891,4 @@ body {
     display: none !important;
   }
 }
+
